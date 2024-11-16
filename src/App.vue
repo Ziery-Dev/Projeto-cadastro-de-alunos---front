@@ -1,6 +1,6 @@
  <!--script-->
  <<script setup> 
-  import Ex from './Componentes/Exemplo02Condicional.vue'
+  import Ex from './Componentes/v-for.vue'
  </script>
  
  <!--HTML-->
