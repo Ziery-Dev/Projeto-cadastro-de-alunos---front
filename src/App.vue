@@ -1,8 +1,9 @@
  <!--script-->
  <<script setup> 
-  import Ex1 from './componentes/Exemplo1-interpolacao.vue'
+  import Ex2 from './Componentes/Exemplo02Condicional.vue'
  </script>
  
+ <!--HTML-->
  <<template>
-  <Ex1></Ex1>
+  <Ex2></Ex2>
  </template>
