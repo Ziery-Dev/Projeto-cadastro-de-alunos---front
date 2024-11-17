@@ -1,6 +1,6 @@
  <!--script-->
  <<script setup> 
-  import Ex from './Componentes/Lifecycle.vue'
+  import Ex from './Componentes/props1.vue'
  </script>
 
 
