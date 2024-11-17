@@ -4,6 +4,15 @@
 
     import props2 from './props2.vue'
 
+    //variaveis
+    let cidade = 'Monção'
+    let times = ["flamengo", "vasco", "corinthians"]
+
+    //Funções
+    function mensagem(){
+        alert('Função exemplo');
+    }
+
 </script>
  
 <!--css-->
@@ -16,6 +25,6 @@
  <!--html-->
 <template>
 
- <props2 nome = 'ziery' idade = 25> </props2> <!--A informação de nome e idade é passada para o props2 e recebida atraves do props-->
+ <props2 nome = 'ziery' idade = '25' :cidade = 'cidade' :times = 'times' :funcao='mensagem'> </props2> <!--Ao passar uma variavel como props, deve-se adicionar os : na frente do nome da variavel-->
     
 </template>
