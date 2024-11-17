@@ -1,6 +1,6 @@
  <!--script-->
  <<script setup> 
-  import Ex from './Componentes/props1.vue'
+  import Ex from './componentes/indexRotas.vue'
  </script>
 
 
