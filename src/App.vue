@@ -1,6 +1,6 @@
  <!--script-->
  <<script setup> 
-  import Ex from './Componentes/preventDefault.vue'
+  import Ex from './Componentes/Lifecycle.vue'
  </script>
 
 
