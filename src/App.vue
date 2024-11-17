@@ -1,6 +1,6 @@
  <!--script-->
  <<script setup> 
-  import Ex from './Componentes/eventosTeclado.vue'
+  import Ex from './Componentes/eventoSubmit.vue'
  </script>
 
 
