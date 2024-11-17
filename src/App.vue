@@ -1,9 +1,11 @@
  <!--script-->
  <<script setup> 
-  import Ex from './Componentes/v-model.vue'
+  import Ex from './Componentes/classeCss.vue'
  </script>
+
+
  
  <!--HTML-->
- <<template>
+ <template>
   <Ex></Ex>
  </template> 
