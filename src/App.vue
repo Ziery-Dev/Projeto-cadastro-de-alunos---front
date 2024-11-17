@@ -1,6 +1,6 @@
  <!--script-->
  <<script setup> 
-  import Ex from './Componentes/classeCss.vue'
+  import Ex from './Componentes/eventoClique.vue'
  </script>
 
 
