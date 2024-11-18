@@ -22,10 +22,39 @@
 
 
 
+
+
+ <!--css-->
+  <style >
+    form{
+      width: 50%;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    form input{
+      margin-bottom: 10px;
+    }
+
+    table{
+      margin: 30px;
+    }
+  </style>
+
+
  <!--html-->
 <template>
 
-  <h1>Tabela</h1>
+  <form>
+    <input type="text" placeholder="Aluno" name="aluno" id="aluno" class="form-control">
+    <input type="number" placeholder="Idade" name="idade" id="idade" class="form-control">
+    <input type="text" placeholder="Matrícula" name="matricula" id="matricula" class="form-control">
+    <input type="text" placeholder="Curso" name="curso" id="aluno" class="form-control">
+    <input type="submit" class="btn btn-primary" value="Cadastrar">
+
+    
+  </form>
+
   <table class="table table-striped">
     <thead>
       <tr>
