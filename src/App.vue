@@ -1,6 +1,6 @@
  <!--script-->
  <<script setup> 
-  import Ex from './componentes/gett.vue'
+  import Ex from './componentes/objProduto.vue'
  </script>
 
 

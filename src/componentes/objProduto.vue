@@ -7,7 +7,7 @@
 
 
   //Vetor de produtos (Onde o mesmo deve ser reativo, pois ao modificar algo no vetor, instnantâneamente a tabela deve alterar tbm)
-  let alunos = ref([]);
+  let alunos = ref({'id': 0, 'aluno': '', 'idade': 0, 'matricula': '', 'curso': ''});
 
 
   //onMounted
@@ -16,6 +16,9 @@
     .then(requisicao => requisicao.json())
     .then(retorno => alunos.value = retorno);
   })
+
+  //Objeto produto
+  let obj = ref({});   
 
 
 </script>
@@ -46,13 +49,12 @@
 <template>
 
   <form>
-    <input type="text" placeholder="Aluno" name="aluno" id="aluno" class="form-control">
-    <input type="number" placeholder="Idade" name="idade" id="idade" class="form-control">
-    <input type="text" placeholder="Matrícula" name="matricula" id="matricula" class="form-control">
-    <input type="text" placeholder="Curso" name="curso" id="aluno" class="form-control">
+    <p>{{obj}}</p>
+    <input type="text" placeholder="Aluno" name="aluno" id="aluno" class="form-control" v-model="obj.nome">
+    <input type="number" placeholder="Idade" name="idade" id="idade" class="form-control" v-model="obj.idade">
+    <input type="text" placeholder="Matrícula" name="matricula" id="matricula" class="form-control" v-model="obj.matricula">
+    <input type="text" placeholder="Curso" name="curso" id="curso" class="form-control" v-model="obj.curso">
     <input type="submit" class="btn btn-primary" value="Cadastrar">
-
-    
   </form>
 
   <table class="table table-striped">
