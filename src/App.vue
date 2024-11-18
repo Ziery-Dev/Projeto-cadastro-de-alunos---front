@@ -1,6 +1,6 @@
  <!--script-->
  <<script setup> 
-  import Ex from './componentes/indexRotas.vue'
+  import Ex from './componentes/requisicaoGet.vue'
  </script>
 
 
