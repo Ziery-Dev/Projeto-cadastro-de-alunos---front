@@ -6,8 +6,8 @@
   import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-  //Vetor de produtos (Onde o mesmo deve ser reativo, pois ao modificar algo no vetor, instnantâneamente a tabela deve alterar tbm)
-  let alunos = ref({'id': 0, 'aluno': '', 'idade': 0, 'matricula': '', 'curso': ''});
+  //Vetor de alunos (Onde o mesmo deve ser reativo, pois ao modificar algo no vetor, instnantâneamente a tabela deve alterar tbm)
+  let alunos = ref({'id': 0, 'nome': '', 'idade': 0, 'matricula': '', 'curso': ''});
 
 
   //onMounted
@@ -44,12 +44,22 @@
     //prevente default(Para que não atualize a página ao clicar no botão de cadastro)
     event.preventDefault();
 
+    //função para selecionar um produto
+    
   }
+
+
+  function selecionar (indice){
+      obj.value = {
+        id : alunos.value[indice].id,
+        nome : alunos.value[indice].nome,
+        idade : alunos.value[indice].idade,
+        matricula : alunos.value[indice].matricula,
+        curso : alunos.value[indice].curso
+        
+      }
+    }
 </script>
-
-
-
-
 
  <!--css-->
   <style >
@@ -73,7 +83,8 @@
 <template>
 
   <form @submit="cadastrar">
-    <input type="text" placeholder="Aluno" name="aluno" id="aluno" class="form-control" v-model="obj.nome">
+    <input type="number" name="id" id="id" v-model="obj.id">
+    <input type="text" placeholder="Nome" name="nome" id="nome" class="form-control" v-model="obj.nome">
     <input type="number" placeholder="Idade" name="idade" id="idade" class="form-control" v-model="obj.idade">
     <input type="text" placeholder="Matrícula" name="matricula" id="matricula" class="form-control" v-model="obj.matricula">
     <input type="text" placeholder="Curso" name="curso" id="curso" class="form-control" v-model="obj.curso">
@@ -91,12 +102,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="a in alunos" :key="a.id">
+      <tr v-for="(a, indice) in alunos" :key="a.id">
         <td>{{a.nome}}</td>
         <td>{{a.idade}}</td>
         <td>{{a.matricula}}</td>
         <td>{{a.curso}}</td>
-        <td ><button class="btn btn-primary" >Selecionar</button></td>
+        <td ><button @click ="selecionar (indice)" class="btn btn-primary" >Selecionar</button></td>
       </tr>
     </tbody>
   </table>
