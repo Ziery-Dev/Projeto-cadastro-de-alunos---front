@@ -9,6 +9,8 @@
   //Vetor de alunos (Onde o mesmo deve ser reativo, pois ao modificar algo no vetor, instnantâneamente a tabela deve alterar tbm)
   let alunos = ref({'id': 0, 'nome': '', 'idade': 0, 'matricula': '', 'curso': ''});
 
+  //visibilidade dos botões
+  let visibilidadeBotao = ref(true)
 
   //onMounted
   onMounted(() => {
@@ -19,6 +21,7 @@
 
   //Objeto produto
   let obj = ref({}); 
+
   
   //Função de cadastro (Post)
   function cadastrar(event){
@@ -58,6 +61,8 @@
         curso : alunos.value[indice].curso
         
       }
+
+      visibilidadeBotao.value= false;
     }
 </script>
 
@@ -76,6 +81,11 @@
     table{
       margin: 30px;
     }
+
+    .espacamentoBtn{
+      margin-left: 5px;
+      margin-right: 5px;
+    }
   </style>
 
 
@@ -88,7 +98,11 @@
     <input type="number" placeholder="Idade" name="idade" id="idade" class="form-control" v-model="obj.idade">
     <input type="text" placeholder="Matrícula" name="matricula" id="matricula" class="form-control" v-model="obj.matricula">
     <input type="text" placeholder="Curso" name="curso" id="curso" class="form-control" v-model="obj.curso">
-    <input type="submit" class="btn btn-primary" value="Cadastrar">
+    <input type="submit" v-if="visibilidadeBotao" class="btn btn-primary" value="Cadastrar">
+    <input type="button" v-if="!visibilidadeBotao" v class="btn btn-warning espacamentoBtn" value="Editar">
+    <input type="button" v-if="!visibilidadeBotao" class="btn btn-danger" value="Remover">
+   
+   
   </form>
 
   <table class="table table-striped">
