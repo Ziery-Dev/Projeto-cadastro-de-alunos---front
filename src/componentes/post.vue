@@ -18,9 +18,33 @@
   })
 
   //Objeto produto
-  let obj = ref({});   
+  let obj = ref({}); 
+  
+  //Função de cadastro (Post)
+  function cadastrar(event){
+    //requisicao post
+    fetch('http://localhost:8080/alunos', {
+      method:'POST',
+      body: JSON.stringify(obj.value),
+      headers:{'Content-Type':'application/json'}
+    })
+    .then(requisicao => requisicao.json())
+    .then(retorno => {
+      //cadastrar o produto na vetor
+      alunos.value.push(retorno)
 
+      //limpar o formulário
+      obj.value.nome = '';
+      obj.value.idade = '';
+      obj.value.matricula = '';
+      obj.value.curso = '';
 
+    })
+
+    //prevente default(Para que não atualize a página ao clicar no botão de cadastro)
+    event.preventDefault();
+
+  }
 </script>
 
 
@@ -48,8 +72,7 @@
  <!--html-->
 <template>
 
-  <form>
-    <p>{{obj}}</p>
+  <form @submit="cadastrar">
     <input type="text" placeholder="Aluno" name="aluno" id="aluno" class="form-control" v-model="obj.nome">
     <input type="number" placeholder="Idade" name="idade" id="idade" class="form-control" v-model="obj.idade">
     <input type="text" placeholder="Matrícula" name="matricula" id="matricula" class="form-control" v-model="obj.matricula">
@@ -78,13 +101,4 @@
     </tbody>
   </table>
 
-
-    <!--O que foi feito?
-    1- o consumo gett da minha api na parte do script
-    2 - as informações da api foram passadas a tabela utilizando o v-for no vetor que continha os dados da api, vetor esse que é reativo, para que qulquer alteração seja atulizada isntantanemente na tabela
-    3 - :key foi utilizado para identificar o id
-    4 - importação do bootStrap, fazendo uso de algumas classes do boot Strap para estilizar a tabela e botões
-
-    
-    -->
 </template>

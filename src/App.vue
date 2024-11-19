@@ -1,6 +1,6 @@
  <!--script-->
  <<script setup> 
-  import Ex from './componentes/objProduto.vue'
+  import Ex from './componentes/post.vue'
  </script>
 
 
