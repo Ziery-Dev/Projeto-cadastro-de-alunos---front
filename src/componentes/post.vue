@@ -47,10 +47,10 @@
     //prevente default(Para que não atualize a página ao clicar no botão de cadastro)
     event.preventDefault();
 
-    //função para selecionar um produto
     
   }
 
+    //função para selecionar um produto
 
   function selecionar (indice){
       obj.value = {
@@ -64,6 +64,39 @@
 
       visibilidadeBotao.value= false;
     }
+
+
+     //Função de editar aluno (Post)
+  function editar(){
+    //requisicao post
+    fetch(`http://localhost:8080/alunos/${obj.value.id}`, {
+      method:'PUT',
+      body: JSON.stringify(obj.value),
+      headers:{'Content-Type':'application/json'}
+    })
+    .then(requisicao => requisicao.json())
+    .then(retorno => {
+
+      //Obter o indice da qual aluno está
+      let indiceAluno = alunos.value.findIndex(objA =>{
+        return objA.id === retorno.id;
+      })
+
+      //Editar o produto na vetor
+      alunos.value[indiceAluno] = retorno;
+
+      //limpar o formulário
+      obj.value.id = '';
+      obj.value.nome = '';
+      obj.value.idade = '';
+      obj.value.matricula = '';
+      obj.value.curso = '';
+
+      //alterar visibilidade dos botões após editar
+      visibilidadeBotao.value = true;
+
+    })
+  }
 </script>
 
  <!--css-->
@@ -93,13 +126,13 @@
 <template>
 
   <form @submit="cadastrar">
-    <input type="number" name="id" id="id" v-model="obj.id">
+    <input type="hidden" name="id" id="id" v-model="obj.id">
     <input type="text" placeholder="Nome" name="nome" id="nome" class="form-control" v-model="obj.nome">
     <input type="number" placeholder="Idade" name="idade" id="idade" class="form-control" v-model="obj.idade">
     <input type="text" placeholder="Matrícula" name="matricula" id="matricula" class="form-control" v-model="obj.matricula">
     <input type="text" placeholder="Curso" name="curso" id="curso" class="form-control" v-model="obj.curso">
     <input type="submit" v-if="visibilidadeBotao" class="btn btn-primary" value="Cadastrar">
-    <input type="button" v-if="!visibilidadeBotao" v class="btn btn-warning espacamentoBtn" value="Editar">
+    <input type="button"  @click="editar" v-if="!visibilidadeBotao" v class="btn btn-warning espacamentoBtn" value="Editar">
     <input type="button" v-if="!visibilidadeBotao" class="btn btn-danger" value="Remover">
    
    
