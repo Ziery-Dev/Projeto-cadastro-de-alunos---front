@@ -42,6 +42,8 @@
       obj.value.matricula = '';
       obj.value.curso = '';
 
+      console.log(obj)
+
     })
 
     //prevente default(Para que não atualize a página ao clicar no botão de cadastro)
@@ -66,7 +68,7 @@
     }
 
 
-     //Função de editar aluno (Post)
+     //Função de editar aluno (put)
   function editar(){
     //requisicao post
     fetch(`http://localhost:8080/alunos/${obj.value.id}`, {
@@ -94,6 +96,38 @@
 
       //alterar visibilidade dos botões após editar
       visibilidadeBotao.value = true;
+
+    })
+  }
+     //Função de remover aluno (delete)
+  function remover(){
+    //requisicao post
+    fetch(`http://localhost:8080/alunos/${obj.value.id}`, {
+      method:'DELETE',
+      headers:{'Content-Type':'application/json'}
+    })
+  
+    .then(() => {
+
+      //Obter o indice da qual aluno está
+      let indiceAluno = alunos.value.findIndex(objA =>{
+        return objA.id === obj.value.id;
+      })
+
+      //Remover o produto no vetor
+      alunos.value.splice(indiceAluno, 1);
+
+       //alterar visibilidade dos botões após editar
+      visibilidadeBotao.value = true;
+
+      //limpar o formulário
+      obj.value.id = 0;
+      obj.value.nome = '';
+      obj.value.idade = '';
+      obj.value.matricula = '';
+      obj.value.curso = '';
+
+     
 
     })
   }
@@ -133,7 +167,7 @@
     <input type="text" placeholder="Curso" name="curso" id="curso" class="form-control" v-model="obj.curso">
     <input type="submit" v-if="visibilidadeBotao" class="btn btn-primary" value="Cadastrar">
     <input type="button"  @click="editar" v-if="!visibilidadeBotao" v class="btn btn-warning espacamentoBtn" value="Editar">
-    <input type="button" v-if="!visibilidadeBotao" class="btn btn-danger" value="Remover">
+    <input type="button" @click="remover" v-if="!visibilidadeBotao" class="btn btn-danger" value="Remover">
    
    
   </form>
