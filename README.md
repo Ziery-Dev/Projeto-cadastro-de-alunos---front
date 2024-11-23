@@ -1,29 +1,18 @@
-# aula1
+### **Projeto cadastro de alunos**
 
-This template should help get you started developing with Vue 3 in Vite.
+O front-end deste projeto foi desenvolvido utilizando **Vue.js** e **Bootstrap**, com foco em oferecer uma interface intuitiva, responsiva e funcional para o gerenciamento de alunos.
 
-## Recommended IDE Setup
+#### **Principais Funcionalidades**
+- **Cadastro de Alunos**: Permite registrar novos alunos com campos obrigatórios (nome, idade, matrícula e curso).  
+- **Validação de Matrícula**: Garante que nenhuma matrícula duplicada seja cadastrada.  
+- **Edição e Remoção**: Possibilidade de editar informações ou excluir registros existentes.  
+- **Interface Responsiva**: Construída com **Bootstrap**, adaptando-se a diversos tamanhos de tela.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+#### **Estrutura de Componentes**
+- **`Formulario.vue`**: Responsável pela entrada de dados e validação do formulário.  
+- **`Tabela.vue`**: Exibe a lista de alunos cadastrados com opções de edição e remoção.  
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+#### **Tecnologias Utilizadas**
+- **Vue.js**: Framework JavaScript para construção de interfaces reativas.  
+- **Bootstrap**: Framework CSS para estilização e responsividade.  
+- **Vite**: Ferramenta de build rápida para projetos Vue.
